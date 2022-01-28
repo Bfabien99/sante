@@ -1,0 +1,7 @@
+.card:hover{
+    box-shadow: 0px 2px 5px white;
+}
+
+.card-body{
+    background: url(../img/1.jpg) no-repeat center/cover;
+}
