@@ -54,11 +54,8 @@
 
             $response = curl_exec($curl);
             curl_close($curl);
-            $sickName = [];
-            foreach (json_decode($response) as $key => $sick) {
-                $sickName[] = $sick->name;
-            }
-            return $sickName;
+            
+            return $response;
         }
 
         public function diagnostic(){

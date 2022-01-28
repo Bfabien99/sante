@@ -4,7 +4,11 @@
 
     $info = $api->info();
     $diagnostis = $api->diagnostic();
-    $symptome = $api->symptome(25);
+    $symptome = $api->symptome(12);
+    $sickName = [];
+            foreach (json_decode($symptome) as $key => $sick) {
+                $sickName[] = ["id" => $sick->id,"name" => $sick->name];
+            }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +19,20 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>What symptome do you have</h1>
     <form action="">
         <select name="" id="">
-        <?php foreach($symptome as $symp):?>
-            <option value="<?= $symp ?>">
-                <?= $symp ?>
+            <option value="null">
+                ...
+            </option>
+        <?php foreach($sickName as $symp):?>
+            <option value="<?= $symp["id"] ?>">
+                <?= $symp["name"] ?>
             </option>
         <?php endforeach?>
         </select>
     </form>
     
-
     
 </body>
 </html>
