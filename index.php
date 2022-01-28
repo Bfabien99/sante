@@ -3,8 +3,9 @@
     $api = new apiInfermedica('d423892e','10676238d756762e2e7ce7bd3bd5f302');
 
     $info = $api->info();
-    $diagnostis = $api->diagnostic();
-    $symptome = $api->symptome(12);
+    $diagnostis = $api->diagnostic(25);
+    $parse = $api->parse();
+    $symptome = $api->symptome(25);
     $sickName = [];
             foreach (json_decode($symptome) as $key => $sick) {
                 $sickName[] = ["id" => $sick->id,"name" => $sick->name];
@@ -33,6 +34,6 @@
         </select>
     </form>
     
-    
+    <?= $parse ?>
 </body>
 </html>
